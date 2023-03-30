@@ -1,3 +1,6 @@
+import java.util.ArrayList;
+import java.util.Arrays;
+
 interface Boat{}
 class Speedboat implements Boat{
     BoatPart hull = new BoatPart("Hull", "" );
@@ -7,6 +10,8 @@ class Speedboat implements Boat{
     BoatPart electricalSystem = new BoatPart("Electrical system", "" );
     BoatPart upholstery = new BoatPart("Upholstery", "" );
     BoatPart safetyEquipment = new BoatPart("Safety equipment", "" );
+    ArrayList<BoatPart> boatParts = new ArrayList<BoatPart>(Arrays.asList(hull, outboardMotor, fuelTank, steeringSystem,
+            electricalSystem, upholstery,safetyEquipment));
 }
 class Oiltanker implements Boat{
     BoatPart hull = new BoatPart("Hull", "");
@@ -16,6 +21,8 @@ class Oiltanker implements Boat{
     BoatPart pumpsAndValves = new BoatPart("Pumps and valves", "");
     BoatPart navAndComSys = new BoatPart("Navigation and communication system", "");
     BoatPart safetyEquipment = new BoatPart("Safety equipment", "");
+    ArrayList<BoatPart> boatParts = new ArrayList<BoatPart>(Arrays.asList(hull, engines, propulsionSystem,
+            cargoTanks, pumpsAndValves, navAndComSys, safetyEquipment));
 }
 class Sailboat implements Boat{
     BoatPart hull = new BoatPart("Hull","");
@@ -26,6 +33,8 @@ class Sailboat implements Boat{
     BoatPart electricalSystem = new BoatPart("Electrical system","");
     BoatPart interiorFurnishings = new BoatPart("Interior furnishings","");
     BoatPart safetyEquipment = new BoatPart("Safety equipment","");
+    ArrayList<BoatPart> boatParts = new ArrayList<BoatPart>(Arrays.asList(hull, mastAndRigging, sails,
+            keel, steeringSystem, electricalSystem, interiorFurnishings, safetyEquipment));
 
 }
 class Cruiseship implements Boat {
@@ -36,6 +45,8 @@ class Cruiseship implements Boat {
     BoatPart diningAndEntertainmentFacilities = new BoatPart("Dining and entertainment facilities", "");
     BoatPart safetyEquipment = new BoatPart("Safety equipment", "");
     BoatPart navigationAndCommunicationSystems = new BoatPart("Navigation and communication systems", "");
+    ArrayList<BoatPart> boatParts = new ArrayList<BoatPart>(Arrays.asList(hull, engines, propellers,
+            accommodations, diningAndEntertainmentFacilities, safetyEquipment, navigationAndCommunicationSystems));
 }
 class Fishingvessel implements Boat{
     BoatPart hull = new BoatPart("Hull","");
@@ -44,6 +55,8 @@ class Fishingvessel implements Boat{
     BoatPart navigationAndCommunicationSystems = new BoatPart("Navigation and communication systems","");
     BoatPart deckMachineryAndEquipment = new BoatPart("Deck machinery and equipment","");
     BoatPart safetyEquipment = new BoatPart("Safety equipment","");
+    ArrayList<BoatPart> boatParts = new ArrayList<BoatPart>(Arrays.asList(hull, engine, fishingGearAndEquipment,
+            navigationAndCommunicationSystems, deckMachineryAndEquipment, safetyEquipment));
 }
 
 
