@@ -11,7 +11,7 @@ class Speedboat implements Boat{
     BoatPart upholstery = new BoatPart("Upholstery", "" );
     BoatPart safetyEquipment = new BoatPart("Safety equipment", "" );
     ArrayList<BoatPart> boatParts = new ArrayList<BoatPart>(Arrays.asList(hull, outboardMotor, fuelTank, steeringSystem,
-            electricalSystem, upholstery,safetyEquipment));
+            electricalSystem, upholstery,safetyEquipment)); // De boot heeft een arraylist met BoatPart objecten
 }
 class Oiltanker implements Boat{
     BoatPart hull = new BoatPart("Hull", "");
@@ -63,6 +63,9 @@ class Fishingvessel implements Boat{
 public class Main {
     public static void main(String[] args) {
         System.out.println("");
+        Sailboat sailboat = new Sailboat();
+        Vragenlijst vragenlijst = new Vragenlijst();
+        vragenlijst.prompt(sailboat.boatParts);
     }
 
 }

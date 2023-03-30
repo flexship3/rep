@@ -1,7 +1,7 @@
 public class BoatPart {
-    String name;
-    int price;
-    String info;
+    private String name;
+    private int price;
+    private String info;
     public BoatPart(String name, String info) {
         this.name = name;
         this.price = price;
