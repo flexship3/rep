@@ -4,7 +4,6 @@ public class BoatPart {
     private String info;
     public BoatPart(String name, String info) {
         this.name = name;
-        this.price = price;
         this.info = info;
     }
 
