@@ -3,9 +3,7 @@ class Klanten {
     double discountPercentage;
 
     Scanner scanner = new Scanner(System.in);
-    public Klanten(double discountPercentage) {
-        this.discountPercentage = discountPercentage;
-    }
+
 
     public double Vragen() {
         while (true) {

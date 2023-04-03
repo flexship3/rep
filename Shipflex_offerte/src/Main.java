@@ -64,6 +64,9 @@ class Fishingvessel implements Boat{
 
 public class Main {
     public static void main(String[] args) {
+        Klanten klanten = new Klanten();
+        klanten.Vragen();
+
         System.out.println("What type of boat are you buying?");
         Scanner scanner = new Scanner(System.in);
         String fake = scanner.nextLine();
@@ -71,5 +74,4 @@ public class Main {
         Vragenlijst vragenlijst = new Vragenlijst();
         vragenlijst.prompt(sailboat.boatParts);
     }
-
 }
