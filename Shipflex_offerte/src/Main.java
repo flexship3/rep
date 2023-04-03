@@ -3,8 +3,8 @@ import java.util.Arrays;
 import java.util.Scanner;
 
 interface Boat{
-    public String getName();
-    public ArrayList<BoatPart> getboatParts();
+    String getName();
+    ArrayList<BoatPart> getboatParts();
 }
 class Speedboat implements Boat{
     final private String name = "speedboat";
@@ -117,7 +117,9 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
         Botenlijst botenlijst = new Botenlijst();
         Vragenlijst vragenlijst = new Vragenlijst();
-        vragenlijst.Kiesboat(botenlijst, scanner);
+        Klanten klanten = new Klanten();
+        vragenlijst.kortingVraag(klanten, botenlijst, scanner);
+
     }
 
 }
