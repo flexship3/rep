@@ -1,9 +1,4 @@
-interface Klant {
-    void Klanten(String name, String address, String order);
-
-}
-
-abstract class Klanten implements Klant {
+class Klanten {
     String name;
     String address;
     String order; //Wss object, ff kijken hoe en wat
@@ -13,15 +8,9 @@ abstract class Klanten implements Klant {
         this.order = order;
     }
 }
-abstract class Korting implements Klant {
-    String name;
-    String address;
-    String order; //Wss object, ff kijken hoe en wat
-    int korting;
-    public void Klanten(String name, String address, String order) {
-        this.name = name;
-        this.address = address;
-        this.order = order;
+class Korting extends Klanten {
+    public Korting(String name, String address, String order) {
+        super(name, address, order);
     }
 
     public int berekendeKorting(int korting) {
