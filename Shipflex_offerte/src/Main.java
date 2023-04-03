@@ -1,5 +1,6 @@
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Scanner;
 
 interface Boat{}
 class Speedboat implements Boat{
@@ -63,7 +64,9 @@ class Fishingvessel implements Boat{
 
 public class Main {
     public static void main(String[] args) {
-        System.out.println("");
+        System.out.println("What type of boat are you buying?");
+        Scanner scanner = new Scanner(System.in);
+        String fake = scanner.nextLine();
         Sailboat sailboat = new Sailboat();
         Vragenlijst vragenlijst = new Vragenlijst();
         vragenlijst.prompt(sailboat.boatParts);
