@@ -57,6 +57,7 @@ class Fishingvessel implements Boat{
     BoatPart safetyEquipment = new BoatPart("Safety equipment","$5,000 to $20,000 or more");
     ArrayList<BoatPart> boatParts = new ArrayList<BoatPart>(Arrays.asList(hull, engine, fishingGearAndEquipment,
             navigationAndCommunicationSystems, deckMachineryAndEquipment, safetyEquipment));
+
 }
 
 
