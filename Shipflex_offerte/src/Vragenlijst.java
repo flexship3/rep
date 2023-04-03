@@ -8,7 +8,10 @@ public class Vragenlijst {
     public void prompt(ArrayList<BoatPart> boatParts) {
         Scanner scanner = new Scanner(System.in);
         for (int i = 0; i < boatParts.size(); i++) {System.out.printf("How much does the %s cost? average price(%s)", boatParts.get(i).getName(), boatParts.get(i).getInfo());
-            boatParts.get(i).setPrice(scanner.nextInt());
+            String prijsVanOnderdeel = scanner.nextLine();
+            if (prijsVanOnderdeel.toLowerCase().equals("info"))
+            {boatParts.get(i).getExtraInfo();}
+            boatParts.get(i).setPrice(Integer.parseInt(prijsVanOnderdeel));
 
         }
         for (int i = 0; i < boatParts.size(); i++) {
