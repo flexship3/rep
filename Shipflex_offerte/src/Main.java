@@ -2,8 +2,22 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Scanner;
 
-interface Boat{}
+interface Boat{
+    public String getName();
+    public ArrayList<BoatPart> getboatParts();
+}
 class Speedboat implements Boat{
+    final private String name = "speedboat";
+    @Override
+    public String getName() {
+        return name;
+    }
+
+    @Override
+    public ArrayList<BoatPart> getboatParts() {
+        return boatParts;
+    }
+
     BoatPart hull = new BoatPart("Hull", "$5,000 to $20,000" );
     BoatPart outboardMotor = new BoatPart("Outboard Motor", "$5,000 to $15,000" );
     BoatPart fuelTank = new BoatPart("Fuel Tank", "$500 to $1,500" );
@@ -15,6 +29,15 @@ class Speedboat implements Boat{
             electricalSystem, upholstery,safetyEquipment)); // De boot heeft een arraylist met BoatPart objecten
 }
 class Oiltanker implements Boat{
+    final private String name = "oiltanker";
+    @Override
+    public String getName() {
+        return name;
+    }
+    @Override
+    public ArrayList<BoatPart> getboatParts() {
+        return boatParts;
+    }
     BoatPart hull = new BoatPart("Hull", "$100 million to $500 million or more");
     BoatPart engines = new BoatPart("Engines", "$50 million to $100 million or more");
     BoatPart propulsionSystem = new BoatPart("Propulsion system", "$20 million to $50 million or more");
@@ -26,6 +49,15 @@ class Oiltanker implements Boat{
             cargoTanks, pumpsAndValves, navAndComSys, safetyEquipment));
 }
 class Sailboat implements Boat{
+    final private String name = "sailboat";
+    @Override
+    public String getName() {
+        return name;
+    }
+    @Override
+    public ArrayList<BoatPart> getboatParts() {
+        return boatParts;
+    }
     BoatPart hull = new BoatPart("Hull","$5,000 to $30,000");
     BoatPart mastAndRigging = new BoatPart("Mast and rigging","$10,000 to $15,000");
     BoatPart sails = new BoatPart("Sails","$5,000 to $10,000");
@@ -39,6 +71,15 @@ class Sailboat implements Boat{
 
 }
 class Cruiseship implements Boat {
+    final private String name = "cruiseship";
+    @Override
+    public String getName() {
+        return name;
+    }
+    @Override
+    public ArrayList<BoatPart> getboatParts() {
+        return boatParts;
+    }
     BoatPart hull = new BoatPart("Hull", "$300 million to $1 billion or more");
     BoatPart engines = new BoatPart("Engines", "$100 million or more");
     BoatPart propellers = new BoatPart("Propellers", "$5 million to $20 million or more");
@@ -50,6 +91,15 @@ class Cruiseship implements Boat {
             accommodations, diningAndEntertainmentFacilities, safetyEquipment, navigationAndCommunicationSystems));
 }
 class Fishingvessel implements Boat{
+    final private String name = "fishingvessel";
+    @Override
+    public String getName() {
+        return name;
+    }
+    @Override
+    public ArrayList<BoatPart> getboatParts() {
+        return boatParts;
+    }
     BoatPart hull = new BoatPart("Hull","$50,000 to $200,000");
     BoatPart engine = new BoatPart("Engine","$50,000 to $100,000 or more");
     BoatPart fishingGearAndEquipment = new BoatPart("Fishing gear and equipment","$10,000 to $50,000 or more");
@@ -64,12 +114,10 @@ class Fishingvessel implements Boat{
 
 public class Main {
     public static void main(String[] args) {
-        System.out.println("What type of boat are you buying?");
         Scanner scanner = new Scanner(System.in);
-        String fake = scanner.nextLine();
-        Sailboat sailboat = new Sailboat();
+        Botenlijst botenlijst = new Botenlijst();
         Vragenlijst vragenlijst = new Vragenlijst();
-        vragenlijst.prompt(sailboat.boatParts);
+        vragenlijst.Kiesboat(botenlijst, scanner);
     }
 
 }
