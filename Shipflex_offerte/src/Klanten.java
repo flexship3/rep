@@ -1,19 +1,32 @@
-class Klanten {
-    String name;
-    String address;
-    String order; //Wss object, ff kijken hoe en wat
-    public Klanten(String name, String address, String order) {
-        this.name = name;
-        this.address = address;
-        this.order = order;
-    }
-}
-class Korting extends Klanten {
-    public Korting(String name, String address, String order) {
-        super(name, address, order);
+import java.util.Scanner;
+class Klanten {double korting;
+    double discountPercentage;
+
+    Scanner scanner = new Scanner(System.in);
+    public Klanten(double korting) {
+        this.korting = korting;
     }
 
-    public int berekendeKorting(int korting) {
-        return (100 - korting) / 100;
+    public void Vragen() {
+        while (true) {
+            System.out.println("Are you a private or business customer? \n" +
+                               "Enter either business or private");
+            String customer = scanner.nextLine();
+            switch (customer) {
+                case "business":
+                case "Business":
+                    System.out.println("What discount do you receive?");
+                    double discount = scanner.nextDouble();
+                    discountPercentage = (100 - discount) / 100;
+                    break;
+                case "private":
+                case "Private":
+                    System.out.println("You have 0% discount");
+                    discountPercentage = 0;
+                    break;
+                default:
+                    System.out.println("Please input either 'business' or 'private'");
+            }
+        }
     }
 }
