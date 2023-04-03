@@ -6,9 +6,8 @@ public class Vragenlijst {
 
     public void prompt(ArrayList<BoatPart> boatParts) {
         Scanner scanner = new Scanner(System.in);
-        String priceRange;
         for (int i = 0; i < boatParts.size(); i++) {
-            System.out.println("How much does the " + boatParts.get(i).getName() + " cost?");
+            System.out.printf("How much does the %s cost? average price: (%s)", boatParts.get(i).getName(), boatParts.get(i).getInfo());
             prijslijst.prijzen.add(scanner.nextInt());
         }
         for (int i = 0; i < prijslijst.prijzen.size(); i++) {
