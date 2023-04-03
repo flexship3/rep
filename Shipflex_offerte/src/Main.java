@@ -1,3 +1,5 @@
+import java.io.FileNotFoundException;
+import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Scanner;
@@ -113,7 +115,7 @@ class Fishingvessel implements Boat{
 
 
 public class Main {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws FileNotFoundException, UnsupportedEncodingException {
         Scanner scanner = new Scanner(System.in);
         Botenlijst botenlijst = new Botenlijst();
         Vragenlijst vragenlijst = new Vragenlijst();
