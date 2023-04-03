@@ -26,8 +26,8 @@ class Oiltanker implements Boat{
 }
 class Sailboat implements Boat{
     BoatPart hull = new BoatPart("Hull","$5,000 to $30,000");
-    BoatPart mastAndRigging = new BoatPart("Mast and rigging","");
-    BoatPart sails = new BoatPart("Sails","$10,000 to $15,000");
+    BoatPart mastAndRigging = new BoatPart("Mast and rigging","$10,000 to $15,000");
+    BoatPart sails = new BoatPart("Sails","$5,000 to $10,000");
     BoatPart keel = new BoatPart("Keel","$10,000 to $15,000");
     BoatPart steeringSystem = new BoatPart("Steering system","$2,000 to $5,000");
     BoatPart electricalSystem = new BoatPart("Electrical system","$2,000 to $5,000");
