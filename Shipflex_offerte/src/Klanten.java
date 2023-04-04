@@ -1,6 +1,9 @@
 import java.util.Scanner;
 class Klanten {
     private double discountPercentage;
+    private String customerName;
+
+
 
     Scanner scanner = new Scanner(System.in);
 
@@ -13,10 +16,19 @@ class Klanten {
     public double getDiscountPercentage() {
         return discountPercentage;
     }
+    public String getCustomerName() {
+        return customerName;
+    }
+
+    public void setCustomerName(String customerName) {
+        this.customerName = customerName;
+    }
 
     public void Vragen() {
         while (true) {
             boolean breakloop = false;
+            System.out.println("What is your or your company's name?");
+            setCustomerName(scanner.nextLine());
             System.out.println("Are you a private or business customer? (Enter either business or private)");
             String customer = scanner.nextLine();
             switch (customer.toLowerCase()) {

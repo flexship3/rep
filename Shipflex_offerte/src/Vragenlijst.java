@@ -11,7 +11,6 @@ public class Vragenlijst {
     public void kortingVraag (Klanten klanten, Botenlijst botenlijst) throws FileNotFoundException, UnsupportedEncodingException {
         Scanner scanner = new Scanner(System.in);
         klanten.Vragen();
-        System.out.println(klanten.getDiscountPercentage());
         Kiesboat(botenlijst, scanner, klanten);
     }
     public void Kiesboat(Botenlijst botenlijst, Scanner scanner, Klanten klanten) throws FileNotFoundException, UnsupportedEncodingException {
@@ -46,9 +45,9 @@ public class Vragenlijst {
 
     public void prompt(ArrayList<BoatPart> boatParts, Klanten klanten, Scanner scanner) throws FileNotFoundException, UnsupportedEncodingException {
         PrintWriter writer = new PrintWriter("offerte.txt", "UTF-8");
-        writer.println("Flex-Ship offerte." + "\n");
+        writer.println("Flex-Ship offerte " + klanten.getCustomerName() + ".\n");
         for (int i = 0; i < boatParts.size(); i++) {
-            System.out.printf("How much does the %s cost? average price: (%s)", boatParts.get(i).getName(), boatParts.get(i).getInfo());
+            System.out.printf("How much does the %s cost? average price: (%s, write 'info' for more)", boatParts.get(i).getName(), boatParts.get(i).getInfo());
             String input = scanner.nextLine();
             if (input.equals("info")){
                 System.out.println(boatParts.get(i).getExtraInfo());
