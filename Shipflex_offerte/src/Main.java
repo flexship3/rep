@@ -116,11 +116,10 @@ class Fishingvessel implements Boat{
 
 public class Main {
     public static void main(String[] args) throws FileNotFoundException, UnsupportedEncodingException {
-        Scanner scanner = new Scanner(System.in);
         Botenlijst botenlijst = new Botenlijst();
         Vragenlijst vragenlijst = new Vragenlijst();
         Klanten klanten = new Klanten();
-        vragenlijst.kortingVraag(klanten, botenlijst, scanner);
+        vragenlijst.kortingVraag(klanten, botenlijst);
 
     }
 
