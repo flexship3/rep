@@ -21,21 +21,21 @@ public class Vragenlijst {
             for (int i = 0; i < botenlijst.botenlijst.size(); i++){
                 System.out.printf("%d for %s%n", i + 1, botenlijst.botenlijst.get(i).getName());
             }
-            int keuze = scanner.nextInt();
+            String keuze = scanner.nextLine();
             switch (keuze){
-                case 1: prompt(botenlijst.botenlijst.get(0).getboatParts(), klanten, scanner);
+                case "1": prompt(botenlijst.botenlijst.get(0).getboatParts(), klanten, scanner);
                     breakloop = true;
                     break;
-                case 2: prompt(botenlijst.botenlijst.get(1).getboatParts(), klanten, scanner);
+                case "2": prompt(botenlijst.botenlijst.get(1).getboatParts(), klanten, scanner);
                     breakloop = true;
                     break;
-                case 3: prompt(botenlijst.botenlijst.get(2).getboatParts(), klanten, scanner);
+                case "3": prompt(botenlijst.botenlijst.get(2).getboatParts(), klanten, scanner);
                     breakloop = true;
                     break;
-                case 4: prompt(botenlijst.botenlijst.get(3).getboatParts(), klanten, scanner);
+                case "4": prompt(botenlijst.botenlijst.get(3).getboatParts(), klanten, scanner);
                     breakloop = true;
                     break;
-                case 5: prompt(botenlijst.botenlijst.get(4).getboatParts(), klanten, scanner);
+                case "5": prompt(botenlijst.botenlijst.get(4).getboatParts(), klanten, scanner);
                     breakloop = true;
                     break;
                 default: System.out.println("Please only give a number between 1-5 for the following boats: ");
@@ -49,7 +49,19 @@ public class Vragenlijst {
         writer.println("Flex-Ship offerte." + "\n");
         for (int i = 0; i < boatParts.size(); i++) {
             System.out.printf("How much does the %s cost? average price: (%s)", boatParts.get(i).getName(), boatParts.get(i).getInfo());
-            boatParts.get(i).setPrice(scanner.nextInt());
+            String input = scanner.nextLine();
+            if (input.equals("info")){
+                System.out.println(boatParts.get(i).getExtraInfo());
+                i--;
+            }
+            else if (Character.isDigit(input.charAt(0)) ) {
+                int prijs = Integer.parseInt(input);
+                boatParts.get(i).setPrice(prijs);
+            }
+            else {
+               System.out.println("foute input");
+               i--;
+            }
         }
         for (int i = 0; i < boatParts.size(); i++) {
             System.out.println(boatParts.get(i).getName() + ": " + boatParts.get(i).getPrice());

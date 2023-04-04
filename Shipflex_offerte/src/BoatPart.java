@@ -3,9 +3,10 @@ public class BoatPart {
     private int price;
     private String info;
     private String extraInfo;
-    public BoatPart(String name, String info) {
+    public BoatPart(String name, String info, String extraInfo) {
         this.name = name;
         this.info = info;
+        this.extraInfo = extraInfo;
     }
 
     public void setPrice(int price) {
