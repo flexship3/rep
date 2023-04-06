@@ -67,9 +67,9 @@ public class Vragenlijst {
             }
         }
         for (int i = 0; i < boatParts.size(); i++) {
-            System.out.println(boatParts.get(i).getName() + ": $" + boatParts.get(i).getPrice());
+            System.out.printf("%-20s$%d%n",boatParts.get(i).getName(),boatParts.get(i).getPrice());
             this.prijsTotaal += boatParts.get(i).getPrice();
-            writer.println(boatParts.get(i).getName() + ": $" + boatParts.get(i).getPrice());
+            writer.printf("%-20s$%d%n",boatParts.get(i).getName(),boatParts.get(i).getPrice());
         }// deze method neemt een lijst boatparts en geeft een vragenlijst gebaseerd hierop
         System.out.printf("%nTotaal met korting (%.1f%%): $%.2f",(100 - klanten.getDiscountPercentage() * 100), prijsTotaal * klanten.getDiscountPercentage());
         writer.printf("%nTotaal met korting (%.1f%%): $%.2f",(100 - klanten.getDiscountPercentage() * 100), prijsTotaal * klanten.getDiscountPercentage());
