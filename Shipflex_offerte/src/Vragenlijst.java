@@ -66,14 +66,42 @@ public class Vragenlijst {
                i--;
             }
         }
+        extraOptie(boatParts);
         for (int i = 0; i < boatParts.size(); i++) {
-            System.out.printf("%-20s$%d%n",boatParts.get(i).getName(),boatParts.get(i).getPrice());
+            System.out.printf("%-40s$%d%n",boatParts.get(i).getName(),boatParts.get(i).getPrice());
             this.prijsTotaal += boatParts.get(i).getPrice();
-            writer.printf("%-20s$%d%n",boatParts.get(i).getName(),boatParts.get(i).getPrice());
+            writer.printf("%-40s$%d%n",boatParts.get(i).getName(),boatParts.get(i).getPrice());
         }// deze method neemt een lijst boatparts en geeft een vragenlijst gebaseerd hierop
-        System.out.printf("%nTotaal met korting (%.1f%%): $%.2f",(100 - klanten.getDiscountPercentage() * 100), prijsTotaal * klanten.getDiscountPercentage());
-        writer.printf("%nTotaal met korting (%.1f%%): $%.2f",(100 - klanten.getDiscountPercentage() * 100), prijsTotaal * klanten.getDiscountPercentage());
+        System.out.printf("%nTotal with discount (%.1f%%): $%.2f",(100 - klanten.getDiscountPercentage() * 100), prijsTotaal * klanten.getDiscountPercentage());
+        writer.printf("%nTotal with discount (%.1f%%): $%.2f",(100 - klanten.getDiscountPercentage() * 100), prijsTotaal * klanten.getDiscountPercentage());
         writer.close();
+    }
+    public void extraOptie(ArrayList<BoatPart> boatParts){
+        boolean stop = false;
+        while (!stop) {
+            System.out.println("Does your boat have any additional features? Y/N");
+            String yesNo = scanner.nextLine().toLowerCase();
+            String name = "";
+            int price = 0;
+            String info = "";
+            String extraInfo = "";
+            if (yesNo.equals("y"))
+            {
+                System.out.println("What additional feature are you adding?");
+                name = scanner.nextLine();
+                System.out.println("What's the price of the " + name + "?");
+                price = scanner.nextInt();
+                scanner.nextLine();
+                BoatPart addFeat = new BoatPart(name, info, extraInfo);
+                addFeat.setPrice(price);
+                boatParts.add(addFeat);
+            }
+            else if (yesNo.equals("n")) {
+                stop = true;
+            } else {
+                System.out.println("I didn't quite catch that. Please repeat.");
+            }
+        }
     }
 }
 
