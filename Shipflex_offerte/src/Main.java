@@ -121,7 +121,6 @@ public class Main {
         Vragenlijst vragenlijst = new Vragenlijst(scanner);
         Klanten klanten = new Klanten();
         vragenlijst.kortingVraag(klanten, botenlijst);
-
     }
 
 }

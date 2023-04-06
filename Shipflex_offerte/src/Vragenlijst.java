@@ -71,8 +71,8 @@ public class Vragenlijst {
             this.prijsTotaal += boatParts.get(i).getPrice();
             writer.println(boatParts.get(i).getName() + ": $" + boatParts.get(i).getPrice());
         }// deze method neemt een lijst boatparts en geeft een vragenlijst gebaseerd hierop
-        System.out.println("\nTotaal met korting (" + (100 - klanten.getDiscountPercentage() * 100) + "%): $" + prijsTotaal * klanten.getDiscountPercentage());
-        writer.println("\nTotaal met korting (" + (100 - klanten.getDiscountPercentage() * 100) + "%): $" + prijsTotaal * klanten.getDiscountPercentage());
+        System.out.printf("%nTotaal met korting (%.1f%%): $%.2f",(100 - klanten.getDiscountPercentage() * 100), prijsTotaal * klanten.getDiscountPercentage());
+        writer.printf("%nTotaal met korting (%.1f%%): $%.2f",(100 - klanten.getDiscountPercentage() * 100), prijsTotaal * klanten.getDiscountPercentage());
         writer.close();
     }
 }
