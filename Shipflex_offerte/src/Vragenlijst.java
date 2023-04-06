@@ -7,13 +7,17 @@ import java.util.Scanner;
 public class Vragenlijst {
     // Prijslijst prijslijst = new Prijslijst();
     double prijsTotaal = 0;
+    private Scanner scanner;
+
+    public Vragenlijst(Scanner scanner) {
+        this.scanner = scanner;
+    }
 
     public void kortingVraag (Klanten klanten, Botenlijst botenlijst) throws FileNotFoundException, UnsupportedEncodingException {
-        Scanner scanner = new Scanner(System.in);
         klanten.Vragen();
-        Kiesboat(botenlijst, scanner, klanten);
+        Kiesboat(botenlijst, klanten);
     }
-    public void Kiesboat(Botenlijst botenlijst, Scanner scanner, Klanten klanten) throws FileNotFoundException, UnsupportedEncodingException {
+    public void Kiesboat(Botenlijst botenlijst, Klanten klanten) throws FileNotFoundException, UnsupportedEncodingException {
         System.out.println("Select the type of boat you want to buy, give a number:");
         while (true){
             boolean breakloop = false;
@@ -22,19 +26,19 @@ public class Vragenlijst {
             }
             String keuze = scanner.nextLine();
             switch (keuze){
-                case "1": prompt(botenlijst.botenlijst.get(0).getboatParts(), klanten, scanner);
+                case "1": prompt(botenlijst.botenlijst.get(0).getboatParts(), klanten);
                     breakloop = true;
                     break;
-                case "2": prompt(botenlijst.botenlijst.get(1).getboatParts(), klanten, scanner);
+                case "2": prompt(botenlijst.botenlijst.get(1).getboatParts(), klanten);
                     breakloop = true;
                     break;
-                case "3": prompt(botenlijst.botenlijst.get(2).getboatParts(), klanten, scanner);
+                case "3": prompt(botenlijst.botenlijst.get(2).getboatParts(), klanten);
                     breakloop = true;
                     break;
-                case "4": prompt(botenlijst.botenlijst.get(3).getboatParts(), klanten, scanner);
+                case "4": prompt(botenlijst.botenlijst.get(3).getboatParts(), klanten);
                     breakloop = true;
                     break;
-                case "5": prompt(botenlijst.botenlijst.get(4).getboatParts(), klanten, scanner);
+                case "5": prompt(botenlijst.botenlijst.get(4).getboatParts(), klanten);
                     breakloop = true;
                     break;
                 default: System.out.println("Please only give a number between 1-5 for the following boats: ");
@@ -43,7 +47,7 @@ public class Vragenlijst {
         }
     }
 
-    public void prompt(ArrayList<BoatPart> boatParts, Klanten klanten, Scanner scanner) throws FileNotFoundException, UnsupportedEncodingException {
+    public void prompt(ArrayList<BoatPart> boatParts, Klanten klanten) throws FileNotFoundException, UnsupportedEncodingException {
         PrintWriter writer = new PrintWriter("offerte.txt", "UTF-8");
         writer.println("Flex-Ship offerte " + klanten.getCustomerName() + ".\n");
         for (int i = 0; i < boatParts.size(); i++) {
@@ -58,17 +62,17 @@ public class Vragenlijst {
                 boatParts.get(i).setPrice(prijs);
             }
             else {
-               System.out.println("foute input");
+               System.out.println("Wrong input");
                i--;
             }
         }
         for (int i = 0; i < boatParts.size(); i++) {
-            System.out.println(boatParts.get(i).getName() + ": " + boatParts.get(i).getPrice());
+            System.out.println(boatParts.get(i).getName() + ": $" + boatParts.get(i).getPrice());
             this.prijsTotaal += boatParts.get(i).getPrice();
-            writer.println(boatParts.get(i).getName() + ": " + boatParts.get(i).getPrice());
+            writer.println(boatParts.get(i).getName() + ": $" + boatParts.get(i).getPrice());
         }// deze method neemt een lijst boatparts en geeft een vragenlijst gebaseerd hierop
-        System.out.println("\nTotaal met korting (" + (100 - klanten.getDiscountPercentage() * 100) + "%): " + prijsTotaal * klanten.getDiscountPercentage());
-        writer.println("\nTotaal met korting (" + (100 - klanten.getDiscountPercentage() * 100) + "%): " + prijsTotaal * klanten.getDiscountPercentage());
+        System.out.println("\nTotaal met korting (" + (100 - klanten.getDiscountPercentage() * 100) + "%): $" + prijsTotaal * klanten.getDiscountPercentage());
+        writer.println("\nTotaal met korting (" + (100 - klanten.getDiscountPercentage() * 100) + "%): $" + prijsTotaal * klanten.getDiscountPercentage());
         writer.close();
     }
 }

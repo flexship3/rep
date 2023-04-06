@@ -27,12 +27,12 @@ class Klanten {
     public void Vragen() {
         while (true) {
             boolean breakloop = false;
-            System.out.println("What is your or your company's name?");
-            setCustomerName(scanner.nextLine());
             System.out.println("Are you a private or business customer? (Enter either business or private)");
             String customer = scanner.nextLine();
             switch (customer.toLowerCase()) {
                 case "business":
+                    System.out.println("What is the name of your company?");
+                    setCustomerName(scanner.nextLine());
                     System.out.println("What discount do you receive?");
                     double discount = scanner.nextDouble();
                     setDiscountPercentage((100 - discount) / 100);
@@ -40,6 +40,8 @@ class Klanten {
                     break;
 
                 case "private":
+                    System.out.println("What is your name?");
+                    setCustomerName(scanner.nextLine());
                     System.out.println("You have 0% discount");
                     setDiscountPercentage(1);
                     breakloop = true;
