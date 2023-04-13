@@ -169,9 +169,9 @@ class Fishingvessel implements Boat{
     BoatPart fishingGearAndEquipment = new BoatPart("Fishing gear and equipment","$10,000 to $50,000 or more", "Netmaster N10 $10000\n" +
             "Netmaster N20 $30000\n" +
             "Netmaster N30 $50000\n");
-    BoatPart navigationAndCommunicationSystems = new BoatPart("Navigation and communication systems","$5,000 to $20,000 or more", "ECDAC300 $5000" +
-            "NAVIVA400 $15000" +
-            "AXN9000 $20000" );
+    BoatPart navigationAndCommunicationSystems = new BoatPart("Navigation and communication systems","$5,000 to $20,000 or more", "ECDAC300 $5000\n" +
+            "NAVIVA400 $15000\n" +
+            "AXN9000 $20000\n" );
     BoatPart deckMachineryAndEquipment = new BoatPart("Deck machinery and equipment","$10,000 to $50,000 or more", "Winchmaster W10 $10000\n" +
             "Winchmaster W20 $30000\n" +
             "Winchmaster W30 $50000\n");
