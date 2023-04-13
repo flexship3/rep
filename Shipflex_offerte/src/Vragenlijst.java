@@ -54,6 +54,7 @@ public class Vragenlijst {
             System.out.printf("How much does the %s cost? average price: (%s, write 'info' for more)", boatParts.get(i).getName(), boatParts.get(i).getInfo());
             String input = scanner.nextLine();
             if (input.equals("info")){
+                System.out.println("Price points of different examples:");
                 System.out.println(boatParts.get(i).getExtraInfo());
                 i--;
             }
