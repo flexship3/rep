@@ -50,33 +50,46 @@ public class Vragenlijst {
     public void prompt(ArrayList<BoatPart> boatParts, Klanten klanten) throws FileNotFoundException, UnsupportedEncodingException {
         PrintWriter writer = new PrintWriter("offerte.txt", "UTF-8");
         writer.println("Flex-Ship offerte " + klanten.getCustomerName() + ".\n");
+        int boatTypeIndex = -1; // Variable to store the index of the chosen boat type
         for (int i = 0; i < boatParts.size(); i++) {
             System.out.printf("How much does the %s cost? average price: (%s, write 'info' for more)", boatParts.get(i).getName(), boatParts.get(i).getInfo());
             String input = scanner.nextLine();
             if (input.equals("info")){
-                System.out.println("Price points of different examples:");
                 System.out.println(boatParts.get(i).getExtraInfo());
                 i--;
             }
             else if (Character.isDigit(input.charAt(0)) ) {
                 int prijs = Integer.parseInt(input);
                 boatParts.get(i).setPrice(prijs);
+                if (boatTypeIndex == -1) { // Store the index of the chosen boat type
+                    boatTypeIndex = i;
+                }
             }
             else {
-               System.out.println("Wrong input");
-               i--;
+                System.out.println("Wrong input");
+                i--;
             }
         }
         extraOptie(boatParts);
         for (int i = 0; i < boatParts.size(); i++) {
-            System.out.printf("%-40s$%d%n",boatParts.get(i).getName(),boatParts.get(i).getPrice());
+            System.out.printf("%-40s$%d%n", boatParts.get(i).getName(), boatParts.get(i).getPrice());
             this.prijsTotaal += boatParts.get(i).getPrice();
-            writer.printf("%-40s$%d%n",boatParts.get(i).getName(),boatParts.get(i).getPrice());
-        }// deze method neemt een lijst boatparts en geeft een vragenlijst gebaseerd hierop
-        System.out.printf("%nTotal with discount (%.1f%%): $%.2f",(100 - klanten.getDiscountPercentage() * 100), prijsTotaal * klanten.getDiscountPercentage());
+            writer.printf("%-40s$%d%n", boatParts.get(i).getName(), boatParts.get(i).getPrice());
+        }
+        String boatTypeName = boatParts.get(boatTypeIndex).getName();
+        System.out.printf("%nSelected Boat Type: %s%n", boatTypeName);
+        writer.printf("%nSelected Boat Type: %s%n", boatTypeName);
+        System.out.printf("%nTotal: $%.2f%n" + prijsTotaal );
+        writer.printf("%nTotal: $%.2f%n" + prijsTotaal );
+        System.out.printf("Total with discount (%.1f%%): $%.2f",(100 - klanten.getDiscountPercentage() * 100), prijsTotaal * klanten.getDiscountPercentage());
         writer.printf("%nTotal with discount (%.1f%%): $%.2f",(100 - klanten.getDiscountPercentage() * 100), prijsTotaal * klanten.getDiscountPercentage());
+        System.out.printf("%nTotal with BTW: $%.2f%n", prijsTotaal * 1.21);
+        writer.printf("%nTotal with BTW: $%.2f%n", prijsTotaal * 1.21);
+        System.out.printf("Final price: $%.2f",(100 - klanten.getDiscountPercentage() * 100), prijsTotaal * klanten.getDiscountPercentage() * 1.21);
+        writer.printf("Final price (%.1f%%): $%.2f",(100 - klanten.getDiscountPercentage() * 100), prijsTotaal * klanten.getDiscountPercentage() * 1.21);
         writer.close();
     }
+
     public void extraOptie(ArrayList<BoatPart> boatParts){
         boolean stop = false;
         while (!stop) {
