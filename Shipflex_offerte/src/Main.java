@@ -189,8 +189,8 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
         Botenlijst botenlijst = new Botenlijst();
         Vragenlijst vragenlijst = new Vragenlijst(scanner);
-        Klanten klanten = new Klanten();
-        vragenlijst.kortingVraag(klanten, botenlijst);
+        Klant klant = new Klant();
+        vragenlijst.kortingVraag(klant, botenlijst);
     }
 
 }

@@ -1,5 +1,5 @@
 import java.util.Scanner;
-class Klanten {
+class Klant {
     private double discountPercentage;
     private String customerName;
 
@@ -35,7 +35,7 @@ class Klanten {
                     setCustomerName(scanner.nextLine());
                     System.out.println("What discount do you receive?");
                     double discount = scanner.nextDouble();
-                    setDiscountPercentage((100 - discount) / 100);
+                    setDiscountPercentage(discount);
                     breakloop = true;
                     break;
 
